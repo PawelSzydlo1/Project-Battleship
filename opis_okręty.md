@@ -1,5 +1,5 @@
 # Project-Battleship
-* Opis zadania
+Opis zadania:
 * Możliwość wyboru trybu gry (1 gracz, 2 graczy).
 * Okno z planszą 10x10 pól (np. siatki przycisków) oraz
 przyciskiem rozpoczęcia gry i przyciskiem reset.
@@ -17,8 +17,8 @@ zostaje podmieniony na odpowiednią grafikę, w przeciwnym razie zostaje oznaczo
 znalezienia orientacji statku i zestrzelenie go do końca.
 * Gra kończy się gdy któryś gracz straci ostatni okręt, wyświetlane jest okno
 z informacją o zwycięzcy (np. “Wygrana!”, “Przegrana!”).
-* Podczas gry gra piracka muzyka.
-* Testy
+* W czasie rozgrywki gra piracka muzyka.
+* Testy:
 1) Próba niepoprawnego ustawienia okrętu (stykanie się bokami lub
 rogami). Oczekiwana informacja o błędzie
 2) Poprawne rozmieszczenie wszystkich okrętów przez gracza i wciśnięcie
