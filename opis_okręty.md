@@ -1,24 +1,24 @@
 # Project-Battleship
-*Opis zadania
-*Możliwość wyboru trybu gry (1 gracz, 2 graczy).
-*Okno z planszą 10x10 pól (np. siatki przycisków) oraz
+* Opis zadania
+* Możliwość wyboru trybu gry (1 gracz, 2 graczy).
+* Okno z planszą 10x10 pól (np. siatki przycisków) oraz
 przyciskiem rozpoczęcia gry i przyciskiem reset.
-*Na początku gracz rozmieszcza okręty (1x czteromasztowiec, 2x trójmasztowiec, 3x
+* Na początku gracz rozmieszcza okręty (1x czteromasztowiec, 2x trójmasztowiec, 3x
 dwumasztowiec, 4x jednomasztowiec).
-*Po rozmieszczeniu okrętów przez gracza i wciśnięciu przycisku nowej gry
+* Po rozmieszczeniu okrętów przez gracza i wciśnięciu przycisku nowej gry
 przeciwnik komputerowy losowo rozmieszcza swoje okręty.
-*Pojawia się okno z dwoma planszami 10x10 przycisków.
-*Okręty nie mogą się dotykać ani bokami ani rogami.
-*Po rozmieszczeniu okrętów przez obu graczy jeden z nich wykonuje pierwszy ruch
+* Pojawia się okno z dwoma planszami 10x10 przycisków.
+* Okręty nie mogą się dotykać ani bokami ani rogami.
+* Po rozmieszczeniu okrętów przez obu graczy jeden z nich wykonuje pierwszy ruch
 (losowo gracz lub komputer).
-*Wybór celu przez gracza następuje przez kliknięcie pola, w razie trafienia przycisk
+* Wybór celu przez gracza następuje przez kliknięcie pola, w razie trafienia przycisk
 zostaje podmieniony na odpowiednią grafikę, w przeciwnym razie zostaje oznaczony inną grafiką jako już wykorzystany (nie można strzelić dwa razy w to samo pole).
-*Komputer strzela w losowe, nie wybrane wcześniej pole. Po trafieniu próba
+* Komputer strzela w losowe, nie wybrane wcześniej pole. Po trafieniu próba
 znalezienia orientacji statku i zestrzelenie go do końca.
-*Gra kończy się gdy któryś gracz straci ostatni okręt, wyświetlane jest okno
+* Gra kończy się gdy któryś gracz straci ostatni okręt, wyświetlane jest okno
 z informacją o zwycięzcy (np. “Wygrana!”, “Przegrana!”).
-*Podczas gry gra piracka muzyka.
-*Testy
+* Podczas gry gra piracka muzyka.
+* Testy
 1) Próba niepoprawnego ustawienia okrętu (stykanie się bokami lub
 rogami). Oczekiwana informacja o błędzie
 2) Poprawne rozmieszczenie wszystkich okrętów przez gracza i wciśnięcie
