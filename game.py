@@ -20,12 +20,11 @@ def draw_player():
         for j in range(0, 10):
             Player_list[i][j]=0
 
-
-
     while counter==0: #ustawianie czteromasztowca
         counter+=1
         x1,y1=random_position(0,9)
         Player_list[x1][y1]=1
+        set_4ship(Player_list,x1,y1)
 
     for i in range(0, 10):
         print(Player_list[i])

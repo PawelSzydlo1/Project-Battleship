@@ -45,4 +45,18 @@ def random_direction(index1, index2, amount):
 
     return x
 
+#ustawianie czteromasztowca
+def set_4ship(array,index1, index2):
+    # 0-północ 1-wschód, 2-południe, 3-zachód
+    x=random_direction(index1,index2,3)
+    for i in range(1,4):
+        if x==0:
+            array[index1-i][index2]=1
+        elif x==1:
+            array[index1][index2+i]=1
+        elif x==2:
+            array[index1+i][index2]=1
+        elif x==3:
+            array[index1][index2-i]=1
+
 
