@@ -11,7 +11,7 @@ def random_position(a, b):
 def random_direction(index1, index2, amount):
     # 0-północ 1-wschód, 2-południe, 3-zachód
     x=random.randint(0,3)
-    if index1<amount or index2>9-amount:
+    if index1<amount or index1>9-amount:
         #przypadki narożników
         if index2<amount:
             if index1<amount:

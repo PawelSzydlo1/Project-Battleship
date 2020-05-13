@@ -14,7 +14,7 @@ for i in range(0,10):
 #wypełnienie planszy gracza
 
 def draw_player():
-    #Statki zajmują 20 pól, counter zlicza ustawione pola
+    #counter zlicza ustawione statki
     counter=0
     for i in range(0, 10):
         for j in range(0, 10):
@@ -24,7 +24,9 @@ def draw_player():
         counter+=1
         x1,y1=random_position(0,9)
         Player_list[x1][y1]=1
+        #ustawianie czteromasztowca
         set_4ship(Player_list,x1,y1)
+
 
     for i in range(0, 10):
         print(Player_list[i])
