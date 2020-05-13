@@ -183,6 +183,12 @@ class Neighbour(NeighbourAbs):
 
         return y
 
+def put_2(array):
+    for i in range(0,10):
+        for j in range(0,10):
+            o=Neighbour(array,i,j,1)
+            if array[i][j]==0 and o.neighbour()==1:
+                array[i][j]=2
 
 
 
