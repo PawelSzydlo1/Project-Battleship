@@ -60,6 +60,7 @@ def set_4ship(array,index1, index2):
         elif x==3:
             array[index1][index2-i]=1
 
+#klasa abstrakcyjna
 
 class NeighbourAbs():
 
@@ -70,13 +71,13 @@ class NeighbourAbs():
         pass
 
 class Neighbour(NeighbourAbs):
-    __x=0
+    __array=[]
     __index1=0
     __index2=0
     __t=0
 
-    def __init__(self,x,index1,index2,t):
-        self.__x=x
+    def __init__(self,array,index1,index2,t):
+        self.__array=array
         self.__index1=index1
         self.__index2=index2
         self.__t=t
@@ -87,6 +88,108 @@ class Neighbour(NeighbourAbs):
         if self.__index1==0 or self.__index1==9:
             if self.__index2==0:
                 if self.__index1==0:
+                    if self.__array[self.__index1+1][self.__index2]==self.__t:
+                        y=1
+                    if self.__array[self.__index1][self.__index2+1]==self.__t:
+                        y=1
+                    if self.__array[self.__index1+1][self.__index2+1]==self.__t:
+                        y=1
+                else: #index1==9
+                    if self.__array[self.__index1-1][self.__index2]==self.__t:
+                        y=1
+                    if self.__array[self.__index1][self.__index2+1]==self.__t:
+                        y=1
+                    if self.__array[self.__index1-1][self.__index2+1]==self.__t:
+                        y=1
+            elif self.__index2==9:
+                if self.__index1==0:
+                    if self.__array[self.__index1+1][self.__index2]==self.__t:
+                        y=1
+                    if self.__array[self.__index1][self.__index2-1]==self.__t:
+                        y=1
+                    if self.__array[self.__index1+1][self.__index2-1]==self.__t:
+                        y=1
+                else: #index1==9
+                    if self.__array[self.__index1-1][self.__index2]==self.__t:
+                        y=1
+                    if self.__array[self.__index1][self.__index2-1]==self.__t:
+                        y=1
+                    if self.__array[self.__index1-1][self.__index2-1]==self.__t:
+                        y=1
+            else: # index2 nie jest skrajny
+                if self.__index1==0:
+                    if self.__array[self.__index1+1][self.__index2]==self.__t:
+                        y=1
+                    if self.__array[self.__index1][self.__index2+1]==self.__t:
+                        y=1
+                    if self.__array[self.__index1][self.__index2-1]==self.__t:
+                        y=1
+                    if self.__array[self.__index1+1][self.__index2+1]==self.__t:
+                        y=1
+                    if self.__array[self.__index1+1][self.__index2-1]==self.__t:
+                        y=1
+                else: #index1==9
+                    if self.__array[self.__index1-1][self.__index2]==self.__t:
+                        y=1
+                    if self.__array[self.__index1][self.__index2+1]==self.__t:
+                        y=1
+                    if self.__array[self.__index1][self.__index2-1]==self.__t:
+                        y=1
+                    if self.__array[self.__index1-1][self.__index2+1]==self.__t:
+                        y=1
+                    if self.__array[self.__index1-1][self.__index2-1]==self.__t:
+                        y=1
+        elif (self.__index1!=0 and self.__index1!=9 and (self.__index2==0 or self.__index2==9)):
+            if self.__index2==0:
+                if self.__array[self.__index1 + 1][self.__index2] == self.__t:
+                    y = 1
+                if self.__array[self.__index1-1][self.__index2] == self.__t:
+                    y = 1
+                if self.__array[self.__index1][self.__index2 + 1] == self.__t:
+                    y = 1
+                if self.__array[self.__index1 + 1][self.__index2 + 1] == self.__t:
+                    y = 1
+                if self.__array[self.__index1 - 1][self.__index2 + 1] == self.__t:
+                    y = 1
+            else: #index2==9
+                if self.__array[self.__index1 +1][self.__index2] == self.__t:
+                    y = 1
+                if self.__array[self.__index1-1][self.__index2] == self.__t:
+                    y = 1
+                if self.__array[self.__index1][self.__index2 - 1] == self.__t:
+                    y = 1
+                if self.__array[self.__index1 - 1][self.__index2 - 1] == self.__t:
+                    y = 1
+                if self.__array[self.__index1 + 1][self.__index2 - 1] == self.__t:
+                    y = 1
+
+        else: #Srodek planszy
+            if self.__array[self.__index1 + 1][self.__index2] == self.__t:
+                y = 1
+            if self.__array[self.__index1 - 1][self.__index2] == self.__t:
+                y = 1
+            if self.__array[self.__index1][self.__index2 + 1] == self.__t:
+                y = 1
+            if self.__array[self.__index1][self.__index2 - 1] == self.__t:
+                y = 1
+            if self.__array[self.__index1 - 1][self.__index2 + 1] == self.__t:
+                y = 1
+            if self.__array[self.__index1+1][self.__index2 + 1] == self.__t:
+                y = 1
+            if self.__array[self.__index1 + 1][self.__index2 - 1] == self.__t:
+                y = 1
+            if self.__array[self.__index1 - 1][self.__index2 - 1] == self.__t:
+                y = 1
+
+        return y
+
+
+
+
+
+
+
+
 
 
 
