@@ -1,4 +1,5 @@
 import random
+from abc import ABCMeta, abstractmethod
 
 #losowanie pozycji
 def random_position(a, b):
@@ -58,5 +59,38 @@ def set_4ship(array,index1, index2):
             array[index1+i][index2]=1
         elif x==3:
             array[index1][index2-i]=1
+
+
+class NeighbourAbs():
+
+    __metaclass__=ABCMeta
+
+    @abstractmethod
+    def neighbour(self):
+        pass
+
+class Neighbour(NeighbourAbs):
+    __x=0
+    __index1=0
+    __index2=0
+    __t=0
+
+    def __init__(self,x,index1,index2,t):
+        self.__x=x
+        self.__index1=index1
+        self.__index2=index2
+        self.__t=t
+
+    def neighbour(self):
+
+        y=0
+        if self.__index1==0 or self.__index1==9:
+            if self.__index2==0:
+                if self.__index1==0:
+
+
+
+
+
 
 

@@ -28,6 +28,7 @@ def draw_player():
         set_4ship(Player_list,x1,y1)
 
 
+
     for i in range(0, 10):
         print(Player_list[i])
 
