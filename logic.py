@@ -190,6 +190,48 @@ def put_2(array):
             if array[i][j]==0 and o.neighbour()==1:
                 array[i][j]=2
 
+class Ship():
+    __metaclass__=ABCMeta
+
+    @abstractmethod
+    def set_ship(self):
+        pass
+
+class Ship_3(Ship):
+
+    __array=[]
+    __index1=0
+    __index2=0
+    __direction=0
+
+    def __init__(self, array, index1, index2, direction):
+        self.__array=array
+        self.__index1=index1
+        self.__index2=index2
+        self.__direction=direction
+
+
+    def set_ship(self):
+        # 0-północ 1-wschód, 2-południe, 3-zachód
+        if self.__direction==0 and self.__array[self.__index1-2][self.__index2]==0:
+            for i in range(1,3):
+                self.__array[self.__index1-i][self.__index2]=1
+            return 1
+        elif self.__direction==1 and self.__array[self.__index2+2]==0:
+            for i in range (1,3):
+                self.__array[self.__index1][self.__index2+i]=1
+            return 1
+        elif self.__direction==2 and self.__array[self.__index1+2][self.__index2]==0:
+            for i in range(1,3):
+                self.__array[self.__index1+i][self.__index2]=1
+            return 1
+        elif self.__direction==3 and self.__array[self.__index1][self.__index2-2]==0:
+            for i in range(1,3):
+                self.__array[self.__index1][self.__index2-i]=1
+            return 1
+        return 0
+
+
 
 
 
