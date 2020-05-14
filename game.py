@@ -5,6 +5,9 @@ from logic import *
 pygame.init()
 random.seed()
 
+FONT1=pygame.font.SysFont("Times New Roman", 80)
+FONT2=pygame.font.SysFont("Times New Roman", 50)
+
 #inicjowanie planszy komputera
 AI_list=[[] for i in range(0,10,1)]
 #inicjowanie planszy gracza
@@ -118,3 +121,29 @@ def draw_AI():
             AI_list[x4][y4] = 1
             counter += 1
             put_2(AI_list)
+
+def Player_1():
+
+    draw_player()
+
+    while True:
+
+        input(pygame.event.get())
+        SCREEN.blit(BACKGROUND, (0,0))
+
+        text("Ships ready for battle, Captain!", FONT1, WIDTH/2, HEIGHT*0.75/8,WHITE)
+        text("To reset ships' positions, click \"RESET\" button", FONT2, WIDTH/2, HEIGHT*1.5/8,WHITE)
+
+
+        for i in range (HEIGHT_1_B, HEIGHT_1_E, BUTTON_HEIGHT_1+2):
+            for j in range (WIDTH_1_B,WIDTH_1_E,BUTTON_WIDTH_1+2):
+                button_main(SCREEN,j,j+BUTTON_WIDTH_1,i,i+BUTTON_HEIGHT_1,RED,WHITE,None)
+                if Player_list[(i - HEIGHT_1_B - 2) // (BUTTON_WIDTH_1 + 2) + 1][
+                    (j - WIDTH_1_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1] == 1:
+                    SCREEN.blit(SHIP,(j,i))
+
+
+
+        pygame.display.flip()
+
+
