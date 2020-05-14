@@ -66,13 +66,6 @@ def draw_player():
             counter+=1
             put_2(Player_list)
 
-
-
-    for i in range(0, 10):
-        print(Player_list[i])
-
-
-
 #uzupełnienie planszy komputera
 def draw_AI():
     # counter zlicza ustawione statki
@@ -123,11 +116,6 @@ def draw_AI():
             AI_list[x4][y4] = 1
             counter += 1
             put_2(AI_list)
-
-
-
-    for i in range(0, 10):
-        print(AI_list[i])
 
 
 draw_player()
