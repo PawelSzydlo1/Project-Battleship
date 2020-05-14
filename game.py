@@ -1,4 +1,7 @@
+import pygame
+from constant import *
 from logic import *
+
 
 #inicjowanie planszy komputera
 AI_list=[[] for i in range(0,10,1)]
@@ -54,8 +57,20 @@ def draw_player():
             else:
                 Player_list[x3][y3]=0
 
+    #ustawianie jednomasztowców
+    while counter <10:
+        x4,y4=random_position(0,9)
+        o2=Neighbour(Player_list,x4,y4,1)
+        if o2.neighbour()==0 and Player_list[x4][y4]==0:
+            Player_list[x4][y4]=1
+            counter+=1
+            put_2(Player_list)
+
+
 
     for i in range(0, 10):
         print(Player_list[i])
 
 draw_player()
+
+

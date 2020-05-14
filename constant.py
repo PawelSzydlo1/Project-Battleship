@@ -1,3 +1,5 @@
+
+
 #główne wymiary okna
 WIDTH=1000
 HEIGHT=1000
@@ -13,6 +15,3 @@ BUTTON_HEIGHT=125
 #wymiary przycisków do statków
 BUTTON_WIDTH_1=30
 BUTTON_HEIGHT_1=30
-
-
-
