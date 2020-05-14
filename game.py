@@ -41,6 +41,18 @@ def draw_player():
                 put_2(Player_list)
             else:
                 Player_list[x2][y2]=0
+    #ustawianie dwumasztowców
+    while counter < 6:
+        x3,y3=random_position(0,9)
+        o1=Neighbour(Player_list,x3,y3,1)
+        if o1.neighbour()==0 and Player_list[x3][y3]==0:
+            Player_list[x3][y3]=1
+            s1=Ship_2(Player_list,x3,y3,random_direction(x3,y3,1))
+            if s1.set_ship():
+                counter+=1
+                put_2(Player_list)
+            else:
+                Player_list[x3][y3]=0
 
 
     for i in range(0, 10):
