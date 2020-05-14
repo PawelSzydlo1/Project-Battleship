@@ -1,5 +1,9 @@
-import random
+import random,sys
 from abc import ABCMeta, abstractmethod
+import pygame
+from constant import *
+from pygame.locals import *
+
 
 #losowanie pozycji
 def random_position(a, b):
@@ -273,13 +277,22 @@ class Ship_2(Ship):
         return 0
 
 
+#przycisk menu głównego
+def button_main(surface, a, b, c, d, colour, colour_p, action):
+    #pozycja myszki
+    mouse=pygame.mouse.get_pos()
+    #czy kliknięto
+    clik=pygame.mouse.get_pressed()
+
+    if a < mouse[0] < b and c < mouse[1] < d:
+        pygame.draw.rect(surface,colour_p,(a,c,b-a,d-c))
+        if clik[0] == 1 and action != None:
+            action()
+    else:
+        pygame.draw.rect(surface,colour,(a,c,b-a,d-c))
 
 
-
-
-
-
-
-
-
-
+def input(events):  # wyłączanie gry
+    for event in events:
+        if event.type == QUIT:
+            sys.exit(0)

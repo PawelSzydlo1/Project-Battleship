@@ -16,6 +16,7 @@ BUTTON_HEIGHT=125
 BUTTON_WIDTH_1=30
 BUTTON_HEIGHT_1=30
 
+
 #inicjalizacja okna
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))  # tło, ekran
 #załadowanie pliku z tłem

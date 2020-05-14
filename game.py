@@ -2,6 +2,8 @@ import pygame
 from constant import *
 from logic import *
 
+pygame.init()
+random.seed()
 
 #inicjowanie planszy komputera
 AI_list=[[] for i in range(0,10,1)]
@@ -116,8 +118,3 @@ def draw_AI():
             AI_list[x4][y4] = 1
             counter += 1
             put_2(AI_list)
-
-
-draw_player()
-print("\n\n\n\n\n\n")
-draw_AI()
