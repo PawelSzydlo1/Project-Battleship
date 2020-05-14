@@ -296,3 +296,13 @@ def input(events):  # wyłączanie gry
     for event in events:
         if event.type == QUIT:
             sys.exit(0)
+
+#napisy na przycisku
+def text(text, font, width, height, colour):
+    text_surf, text_rect=render(text,font,colour)
+    text_rect.center = (width,height)
+    SCREEN.blit(text_surf,text_rect)
+
+def render(text, font, colour):
+    text_sur=font.render(text,True,colour)
+    return text_sur, text_sur.get_rect()
