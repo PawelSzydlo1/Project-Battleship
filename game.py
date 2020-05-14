@@ -7,6 +7,7 @@ random.seed()
 
 FONT1=pygame.font.SysFont("Times New Roman", 80)
 FONT2=pygame.font.SysFont("Times New Roman", 50)
+FONT3=pygame.font.SysFont("Times New Roman", 60)
 
 #inicjowanie planszy komputera
 AI_list=[[] for i in range(0,10,1)]
@@ -142,7 +143,15 @@ def Player_1():
                     (j - WIDTH_1_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1] == 1:
                     SCREEN.blit(SHIP,(j,i))
 
+        # przejście dalej
+        button_main(SCREEN, WIDTH / 8, WIDTH * 3 / 8, HEIGHT * 5.25 / 8, HEIGHT * 6.25 / 8, BLUE,GREEN,
+                    None)
+        # losowanie planszy raz jeszcze
+        button_main(SCREEN, WIDTH * 5 / 8, WIDTH * 7 / 8, HEIGHT * 5.25 / 8, HEIGHT * 6.25 / 8, BLUE, GREEN,
+                    draw_player)
 
+        text("CONTINUE", FONT2, WIDTH / 4, HEIGHT * 5.75 / 8, BLACK)
+        text("RESET", FONT3, WIDTH * 3 / 4, HEIGHT * 5.75 / 8, BLACK)
 
         pygame.display.flip()
 
