@@ -23,6 +23,18 @@ HEIGHT_1_B = 290
 WIDTH_1_E = 650
 HEIGHT_1_E = 600
 
+#plansza w trybie gry
+WIDTH_2_B = 150
+HEIGHT_2_B = 300
+WIDTH_2_E = 460
+HEIGHT_2_E = 610
+
+#plansza w trybie gry
+WIDTH_3_B = 530
+HEIGHT_3_B = 300
+WIDTH_3_E = 840
+HEIGHT_3_E = 610
+
 
 #inicjalizacja okna
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))  # tło, ekran

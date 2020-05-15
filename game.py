@@ -8,6 +8,7 @@ random.seed()
 FONT1=pygame.font.SysFont("Times New Roman", 80)
 FONT2=pygame.font.SysFont("Times New Roman", 50)
 FONT3=pygame.font.SysFont("Times New Roman", 60)
+FONT4=pygame.font.SysFont("Times New Roman", 100)
 
 #inicjowanie planszy komputera
 AI_list=[[] for i in range(0,10,1)]
@@ -145,13 +146,48 @@ def Player_1():
 
         # przejście dalej
         button_main(SCREEN, WIDTH / 8, WIDTH * 3 / 8, HEIGHT * 5.25 / 8, HEIGHT * 6.25 / 8, BLUE,GREEN,
-                    None)
+                    Continue)
         # losowanie planszy raz jeszcze
         button_main(SCREEN, WIDTH * 5 / 8, WIDTH * 7 / 8, HEIGHT * 5.25 / 8, HEIGHT * 6.25 / 8, BLUE, GREEN,
                     draw_player)
 
         text("CONTINUE", FONT2, WIDTH / 4, HEIGHT * 5.75 / 8, BLACK)
         text("RESET", FONT3, WIDTH * 3 / 4, HEIGHT * 5.75 / 8, BLACK)
+
+        pygame.display.flip()
+
+
+def Continue():
+
+    draw_AI()
+
+    #losowanie kto zaczyna
+    x=random.randint(0,2)
+    flag=0
+
+    while True:
+        input(pygame.event.get())
+        SCREEN.blit(BACKGROUND, (0,0))
+
+        text("START THE BATTLE!", FONT4, WIDTH / 2, HEIGHT * 0.5 / 8, BLACK)
+        text("YOU", FONT1, WIDTH_2_B + 5 * (BUTTON_WIDTH_1 + 2), HEIGHT * 2.5 / 10, BLACK)
+        text("COMPUTER", FONT1, WIDTH_3_B + 5 * (BUTTON_WIDTH_1 + 2), HEIGHT * 2.5 / 10, BLACK)
+
+        #pozostałe okręty
+        counter1 = 0
+        counter2 = 0
+        #strzały gracza i Ai
+        player_hits = 0
+        AI_hits = 0
+
+        for i in range(0,10):
+            counter1+=Player_list[i].count(1)
+            counter2+=AI_list[i].count(1)
+            player_hits+=AI_list[i].count(-1)
+            player_hits+=AI_list[i].count(-2)
+            AI_hits+=Player_list[i].count(-1)
+            AI_hits += Player_list[i].count(-2)
+
 
         pygame.display.flip()
 

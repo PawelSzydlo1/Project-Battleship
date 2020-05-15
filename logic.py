@@ -307,3 +307,12 @@ def render(text, font, colour):
     text_sur=font.render(text,True,colour)
     return text_sur, text_sur.get_rect()
 
+
+# uderzenie gracza
+
+def hit_by_player(array, index1, index2):
+    if array[index1][index2] == 1:
+        array[index1][index2] = -1
+    elif array[index1][index2] == 0 or array[index1][index2] == 2:
+        array[index1][index2] = -2
+
