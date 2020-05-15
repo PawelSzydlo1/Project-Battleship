@@ -10,6 +10,7 @@ FONT1=pygame.font.SysFont("Times New Roman", 80)
 FONT2=pygame.font.SysFont("Times New Roman", 50)
 FONT3=pygame.font.SysFont("Times New Roman", 60)
 FONT4=pygame.font.SysFont("Times New Roman", 100)
+FONT5=pygame.font.SysFont("Times New Roman", 20)
 
 #inicjowanie planszy komputera
 AI_list=[[] for i in range(0,10,1)]
@@ -158,7 +159,14 @@ def Player_1():
         text("CONTINUE", FONT2, WIDTH / 4, HEIGHT * 5.75 / 8, BLACK)
         text("RESET", FONT3, WIDTH * 3 / 4, HEIGHT * 5.75 / 8, BLACK)
 
+        text("Choose difficulty level",FONT2,WIDTH / 2, HEIGHT * 6.75 / 8, WHITE)
 
+        button_level(SCREEN,WIDTH * 2.25 / 10, WIDTH * 3.75 / 10, HEIGHT * 7 / 8, HEIGHT * 7.5 / 8, BLUE,GREEN,0,level)
+        text("EASY", FONT5, WIDTH * 3 / 10, HEIGHT * 7.25 / 8, WHITE)
+        button_level(SCREEN, WIDTH * 4.25 / 10, WIDTH * 5.75 / 10, HEIGHT * 7 / 8, HEIGHT * 7.5 / 8, BLUE,GREEN,1,level)
+        text("HARD", FONT5, WIDTH * 5 / 10, HEIGHT * 7.25 / 8, WHITE)
+        button_level(SCREEN, WIDTH * 6.25 / 10, WIDTH * 7.75 / 10, HEIGHT * 7 / 8, HEIGHT * 7.5 / 8, BLUE,GREEN,2,level)
+        text("EXTREME", FONT5, WIDTH * 7 / 10, HEIGHT * 7.25 / 8, WHITE)
 
         pygame.display.flip()
 
