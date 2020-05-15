@@ -344,3 +344,18 @@ def hit_by_AI_hard(array):
         x, y = random_position(0, 9)
     sleep(0.7)
     array[x][y] = -1
+
+#przycisk poziomu trudności
+
+def button_level(surface, width_b, width_e, height_b, height_e, colour, m_colour, a, level):
+
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+
+    pygame.draw.rect(surface,colour,(width_b, height_b, width_e - width_b, height_e - height_b))
+    if level[a]==1:
+        pygame.draw.rect(surface, m_colour, (width_b, height_b, width_e - width_b, height_e - height_b))
+    if (width_b < mouse[0] < width_e and height_b < mouse[1] < height_e and click[0] == 1):
+        for i in range(0,3):
+            level[i]=0
+        level[a]=1

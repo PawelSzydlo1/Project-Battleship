@@ -158,6 +158,8 @@ def Player_1():
         text("CONTINUE", FONT2, WIDTH / 4, HEIGHT * 5.75 / 8, BLACK)
         text("RESET", FONT3, WIDTH * 3 / 4, HEIGHT * 5.75 / 8, BLACK)
 
+
+
         pygame.display.flip()
 
 
