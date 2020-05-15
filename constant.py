@@ -42,4 +42,12 @@ WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))  # tło, ekran
 BACKGROUND = pygame.image.load('Tło.jpg')
 SHIP=pygame.image.load("SHIP.png")
 SHIP = pygame.transform.scale(SHIP, (BUTTON_WIDTH_1, BUTTON_HEIGHT_1))
+DEFEAT=pygame.image.load("defeat.png")
+DEFEAT = pygame.transform.scale(DEFEAT, (WIDTH, HEIGHT))
+VICTORY = pygame.image.load('victory.jpg')
+D_SHIP = pygame.image.load('ship_d.png')
+D_SHIP = pygame.transform.scale(D_SHIP, (BUTTON_WIDTH_1, BUTTON_HEIGHT_1))
+ANCHOR = pygame.image.load('anchor.png')
+ANCHOR = pygame.transform.scale(ANCHOR, (BUTTON_WIDTH_1, BUTTON_HEIGHT_1))
+
 SCREEN = pygame.display.get_surface()

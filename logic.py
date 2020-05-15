@@ -359,3 +359,4 @@ def button_level(surface, width_b, width_e, height_b, height_e, colour, m_colour
         for i in range(0,3):
             level[i]=0
         level[a]=1
+

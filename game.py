@@ -11,6 +11,8 @@ FONT2=pygame.font.SysFont("Times New Roman", 50)
 FONT3=pygame.font.SysFont("Times New Roman", 60)
 FONT4=pygame.font.SysFont("Times New Roman", 100)
 FONT5=pygame.font.SysFont("Times New Roman", 20)
+FONT6=pygame.font.SysFont("Times New Roman", 25)
+FONT7=pygame.font.SysFont("Times New Roman", 18)
 
 #inicjowanie planszy komputera
 AI_list=[[] for i in range(0,10,1)]
@@ -172,7 +174,41 @@ def Player_1():
 
 
 
+#wygrana komputera
+def endgame1():
 
+    pygame.mixer.music.stop
+    pygame.mixer.music.load('FAIL SOUND EFFECT.mp3')
+    pygame.mixer.music.play(-1)
+
+    while True:
+        input(pygame.event.get())
+        SCREEN.blit(DEFEAT, (0,0))
+
+        button_main(SCREEN, WIDTH / 8, WIDTH * 3 / 8, HEIGHT * 6.5 / 8, HEIGHT * 7.5 / 8, WHITE, WHITE, Player_1)
+        text("REPLAY", FONT2, WIDTH / 4, HEIGHT * 7 / 8, BLACK)
+        button_main(SCREEN, WIDTH * 5 / 8, WIDTH * 7 / 8, HEIGHT * 6.5 / 8, HEIGHT * 7.5 / 8, WHITE, WHITE, quit)
+        text("QUIT", FONT2, WIDTH * 3 / 4, HEIGHT * 7 / 8, BLACK)
+
+        pygame.display.flip()
+
+def endgame2():
+
+    pygame.mixer.music.stop
+    pygame.mixer.music.load('Fanfare.mp3')
+    pygame.mixer.music.play(-1)
+
+    while True:
+
+        input(pygame.event.get())
+        SCREEN.blit(VICTORY, (0,0))
+
+        button_main(SCREEN, WIDTH / 8, WIDTH * 3 / 8, HEIGHT * 6.5 / 8, HEIGHT * 7.5 / 8, WHITE, WHITE, Player_1)
+        text("REPLAY", FONT2, WIDTH / 4, HEIGHT * 7 / 8, BLACK)
+        button_main(SCREEN, WIDTH * 5 / 8, WIDTH * 7 / 8, HEIGHT * 6.5 / 8, HEIGHT * 7.5 / 8, WHITE, WHITE, quit)
+        text("QUIT", FONT2, WIDTH * 3 / 4, HEIGHT * 7 / 8, BLACK)
+
+        pygame.display.flip()
 
 def Continue():
 
@@ -186,11 +222,11 @@ def Continue():
         input(pygame.event.get())
         SCREEN.blit(BACKGROUND, (0,0))
 
-        text("START THE BATTLE!", FONT4, WIDTH / 2, HEIGHT * 0.5 / 8, BLACK)
-        text("YOU", FONT1, WIDTH_2_B + 5 * (BUTTON_WIDTH_1 + 2), HEIGHT * 2.5 / 10, BLACK)
-        text("COMPUTER", FONT1, WIDTH_3_B + 5 * (BUTTON_WIDTH_1 + 2), HEIGHT * 2.5 / 10, BLACK)
+        text("START THE BATTLE!", FONT4, WIDTH / 2, HEIGHT * 0.5 / 8, WHITE)
+        text("YOU", FONT1, WIDTH_2_B + 5 * (BUTTON_WIDTH_1 + 2), HEIGHT * 2.5 / 10, WHITE)
+        text("COMPUTER", FONT1, WIDTH_3_B + 5 * (BUTTON_WIDTH_1 + 2), HEIGHT * 2.5 / 10, WHITE)
 
-        #pozostałe okręty
+        #pozostałe okręty (pola)
         counter1 = 0
         counter2 = 0
         #strzały gracza i Ai
@@ -205,7 +241,6 @@ def Continue():
             AI_hits+=Player_list[i].count(-1)
             AI_hits += Player_list[i].count(-2)
 
-
         # ruch AI po ruchu gracza
         if player_hits == AI_hits + 1:
             if level[0] == 1:
@@ -217,4 +252,26 @@ def Continue():
 
         pygame.display.flip()
 
+        if counter1 == 0:
+            sleep(0.2)
+            endgame1()
 
+        if counter2 == 0:
+            sleep(0.2)
+            endgame2()
+
+        text("YOUR FLEET'S POWER: "+str(counter1), FONT6, WIDTH_2_B + 5 * (BUTTON_WIDTH_1 + 2), HEIGHT * 7 / 10, WHITE)
+        text("ENEMY FLEET'S POWER "+str(counter2), FONT6, WIDTH_3_B + 5 * (BUTTON_WIDTH_1 + 2), HEIGHT * 7 / 10, WHITE)
+        text("Click on a square to shoot!)", FONT7,WIDTH / 2, HEIGHT * 7.5 / 10, WHITE)
+        text("If you hit enemy's ship, you'll see this picture: ", FONT7, WIDTH / 2, HEIGHT * 8 / 10, WHITE)
+        SCREEN.blit(D_SHIP, (WIDTH * 7 / 8, HEIGHT * 7.8 / 10))
+        text("If your shoot misses the target, you'll see this picture: ", FONT7, WIDTH / 2, HEIGHT * 8.5 / 10, WHITE)
+        SCREEN.blit(ANCHOR, (WIDTH * 7 / 8, HEIGHT * 8.35 / 10))
+        text("Each fleet consists of one four-master, two three-masters, three two-masters and four one-masters",FONT7, WIDTH / 2, HEIGHT * 9 / 10, WHITE)
+
+
+
+
+
+
+        pygame.display.flip()
