@@ -4,6 +4,7 @@ from logic import *
 
 pygame.init()
 random.seed()
+level = [1, 0, 0]  # poziom trudności
 
 FONT1=pygame.font.SysFont("Times New Roman", 80)
 FONT2=pygame.font.SysFont("Times New Roman", 50)
@@ -188,6 +189,19 @@ def Continue():
             AI_hits+=Player_list[i].count(-1)
             AI_hits += Player_list[i].count(-2)
 
+
+
+        if flag==0:
+            if x==1:
+
+        # ruch AI po ruchu gracza
+        if player_hits == AI_hits + 1:
+            if level[0] == 1:
+                hit_by_AI_easy(Player_list)
+            elif level[1] == 1:
+                hit_by_AI_normal(Player_list)
+            elif level[2] == 1:
+                hit_by_AI_hard(Player_list)
 
         pygame.display.flip()
 

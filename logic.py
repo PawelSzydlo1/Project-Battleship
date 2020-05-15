@@ -1,4 +1,5 @@
 import random,sys
+from time import sleep
 from abc import ABCMeta, abstractmethod
 import pygame
 from constant import *
@@ -316,3 +317,30 @@ def hit_by_player(array, index1, index2):
     elif array[index1][index2] == 0 or array[index1][index2] == 2:
         array[index1][index2] = -2
 
+def hit_by_AI_easy(array):
+    x, y = random_position(0, 9)
+    while (array[x][y] != 0 and array[x][y] != 1 and array[x][y] != 2):
+        x, y = random_position(0, 9)
+    sleep(0.7)
+    if array[x][y] == 0 or array[x][y] == 2:
+        array[x][y] = -2
+    elif array[x][y] == 1:
+        array[x][y] = -1
+
+
+def hit_by_AI_normal(array):
+    x, y = random_position(0, 9)
+    while (array[x][y] != 2 and array[x][y] != 1):
+        x, y = random_position(0, 9)
+    sleep(0.7)
+    if array[x][y] == 2:
+        array[x][y] = -2
+    elif array[x][y] == 1:
+        array[x][y] = -1
+
+def hit_by_AI_hard(array):
+    x, y = random_position(0, 9)
+    while (array[x][y] != 1):
+        x, y = random_position(0, 9)
+    sleep(0.7)
+    array[x][y] = -1
