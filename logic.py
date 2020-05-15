@@ -395,11 +395,11 @@ class Button():
         mouse=pygame.mouse.get_pos()
         click=pygame.mouse.get_pressed()
 
-        if self.__width_b < mouse[0] < self.__width_e and self.__height_b < mouse[1] < self.__width_e:
-            pygame.draw.rect(self.__surface,self.__m_colour,(self.__width_b,self.__height_b,self.__width_e-self.__width_b,self.__height_e-self.__height_b))
+        if self.__width_b < mouse[0] < self.__width_e and self.__height_b < mouse[1] < self.__height_e:
+            pygame.draw.rect(self.__surface,self.__m_colour,(self.__width_b,self.__height_b,self.__width_e - self.__width_b,self.__height_e-self.__height_b))
             if click[0] == 1 and self.__action==hit_by_player:
                 sleep(0.2)
-                hit_by_player(self.__array, self.__index2)
+                hit_by_player(self.__array,self.__index1, self.__index2)
             elif click[0]==1 and self.__action != None:
                 self.__action()
         else:

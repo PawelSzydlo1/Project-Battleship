@@ -213,7 +213,6 @@ def endgame2():
 def Continue():
 
     draw_AI()
-
     #losowanie kto zaczyna
     x=random.randint(0,2)
     flag=0
@@ -241,6 +240,17 @@ def Continue():
             AI_hits+=Player_list[i].count(-1)
             AI_hits += Player_list[i].count(-2)
 
+        if flag==0:
+            flag+=1
+            if x==0:
+                if level[0] == 1:
+                    hit_by_AI_easy(Player_list)
+                elif level[1] == 1:
+                    hit_by_AI_normal(Player_list)
+                elif level[2] == 1:
+                    hit_by_AI_hard(Player_list)
+
+
         # ruch AI po ruchu gracza
         if player_hits == AI_hits + 1:
             if level[0] == 1:
@@ -250,7 +260,6 @@ def Continue():
             elif level[2] == 1:
                 hit_by_AI_hard(Player_list)
 
-        pygame.display.flip()
 
         if counter1 == 0:
             sleep(0.2)
@@ -262,7 +271,7 @@ def Continue():
 
         text("YOUR FLEET'S POWER: "+str(counter1), FONT6, WIDTH_2_B + 5 * (BUTTON_WIDTH_1 + 2), HEIGHT * 7 / 10, WHITE)
         text("ENEMY FLEET'S POWER "+str(counter2), FONT6, WIDTH_3_B + 5 * (BUTTON_WIDTH_1 + 2), HEIGHT * 7 / 10, WHITE)
-        text("Click on a square to shoot!)", FONT7,WIDTH / 2, HEIGHT * 7.5 / 10, WHITE)
+        text("Click on a square to shoot!", FONT7,WIDTH / 2, HEIGHT * 7.5 / 10, WHITE)
         text("If you hit enemy's ship, you'll see this picture: ", FONT7, WIDTH / 2, HEIGHT * 8 / 10, WHITE)
         SCREEN.blit(D_SHIP, (WIDTH * 7 / 8, HEIGHT * 7.8 / 10))
         text("If your shoot misses the target, you'll see this picture: ", FONT7, WIDTH / 2, HEIGHT * 8.5 / 10, WHITE)
@@ -270,8 +279,29 @@ def Continue():
         text("Each fleet consists of one four-master, two three-masters, three two-masters and four one-masters",FONT7, WIDTH / 2, HEIGHT * 9 / 10, WHITE)
 
 
+        for i in range(HEIGHT_2_B,HEIGHT_2_E,BUTTON_HEIGHT_1+2):
+            for j in range(WIDTH_2_B,WIDTH_2_E,BUTTON_WIDTH_1+2):
+                b=Button(SCREEN,j,j+BUTTON_WIDTH_1,i,i+BUTTON_HEIGHT_1,RED,WHITE,None,Player_list,(i-HEIGHT_2_B-2)//(BUTTON_WIDTH_1+2)+1,(j - WIDTH_2_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1)
+                b.button()
+                if Player_list[(i - HEIGHT_2_B - 2) // (BUTTON_WIDTH_1 + 2) + 1][
+                    (j - WIDTH_2_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1] == 1:
+                    SCREEN.blit(SHIP,(j,i)) # pokaż statek
+                if Player_list[(i - HEIGHT_2_B - 2) // (BUTTON_WIDTH_1 + 2) + 1][
+                    (j - WIDTH_2_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1] == -1:
+                    SCREEN.blit(D_SHIP, (j, i))  # pokaż zniszczony statek
+                if Player_list[(i - HEIGHT_2_B - 2) // (BUTTON_WIDTH_1 + 2) + 1][
+                    (j - WIDTH_2_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1] == -2:
+                    SCREEN.blit(ANCHOR, (j, i))  # pokaż kotwicę
 
-
-
+        for i in range(HEIGHT_3_B,HEIGHT_3_E,BUTTON_HEIGHT_1+2):
+            for j in range(WIDTH_3_B,WIDTH_3_E,BUTTON_WIDTH_1+2):
+                b1=Button(SCREEN,j,j+BUTTON_WIDTH_1,i,i+BUTTON_HEIGHT_1,RED,WHITE,hit_by_player,AI_list,(i-HEIGHT_3_B-2)//(BUTTON_WIDTH_1+2)+1,(j - WIDTH_3_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1)
+                b1.button()
+                if AI_list[(i - HEIGHT_3_B - 2) // (BUTTON_WIDTH_1 + 2) + 1][
+                    (j - WIDTH_3_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1] == -1:
+                    SCREEN.blit(D_SHIP, (j, i))  # pokaż zniszczony statek
+                if AI_list[(i - HEIGHT_3_B - 2) // (BUTTON_WIDTH_1 + 2) + 1][
+                    (j - WIDTH_3_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1] == -2:
+                    SCREEN.blit(ANCHOR, (j, i))  # pokaż kotwicę
 
         pygame.display.flip()
