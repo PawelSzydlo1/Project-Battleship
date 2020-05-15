@@ -127,6 +127,9 @@ def draw_AI():
 
 def Player_1():
 
+
+    pygame.mixer.music.load('Pirates of the Caribbean - Hes a Pirate (Extended).mp3')
+    pygame.mixer.music.play(-1)
     draw_player()
 
     while True:
@@ -156,6 +159,9 @@ def Player_1():
         text("RESET", FONT3, WIDTH * 3 / 4, HEIGHT * 5.75 / 8, BLACK)
 
         pygame.display.flip()
+
+
+
 
 
 def Continue():
@@ -189,10 +195,6 @@ def Continue():
             AI_hits+=Player_list[i].count(-1)
             AI_hits += Player_list[i].count(-2)
 
-
-
-        if flag==0:
-            if x==1:
 
         # ruch AI po ruchu gracza
         if player_hits == AI_hits + 1:
