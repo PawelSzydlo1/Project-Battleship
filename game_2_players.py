@@ -173,5 +173,21 @@ def endgame2():
         pygame.display.flip()
 
 
+def Player_2():
+
+    pygame.mixer.music.load('Pirates of the Caribbean - Hes a Pirate (Extended).mp3')
+    pygame.mixer.music.play(-1)
+
+    draw_player_1()
+
+    while True:
+
+        input(pygame.event.get())
+        SCREEN.blit(BACKGROUND, (0,0))
+
+
+        pygame.display.flip()
+
+
 
 

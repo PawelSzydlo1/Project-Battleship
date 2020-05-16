@@ -1,6 +1,7 @@
 from game import *
 from logic import *
 from constant import *
+from game_2_players import *
 
 pygame.init()
 FONT=pygame.font.SysFont('Times New Roman', 50)
@@ -16,7 +17,7 @@ while True:
 
     button_main(SCREEN, (WIDTH - BUTTON_WIDTH) / 2, (WIDTH - BUTTON_WIDTH) / 2 + BUTTON_WIDTH, 200, 325, BLUE, GREEN,Player_1)
     text("1 PLAYER", FONT, (WIDTH - BUTTON_WIDTH) / 2 + BUTTON_WIDTH / 2, 200 + BUTTON_HEIGHT / 2, BLACK)
-    button_main(SCREEN, (WIDTH - BUTTON_WIDTH) / 2, (WIDTH - BUTTON_WIDTH) / 2 + BUTTON_WIDTH, 450, 575, BLUE,GREEN, None)
+    button_main(SCREEN, (WIDTH - BUTTON_WIDTH) / 2, (WIDTH - BUTTON_WIDTH) / 2 + BUTTON_WIDTH, 450, 575, BLUE,GREEN, Player_2)
     text("2 PLAYERS", FONT, (WIDTH-BUTTON_WIDTH)/2+BUTTON_WIDTH/2, 450+BUTTON_HEIGHT/2, BLACK)
     button_main(SCREEN,(WIDTH-BUTTON_WIDTH)/2,(WIDTH-BUTTON_WIDTH)/2+BUTTON_WIDTH,700,825,BLUE,GREEN,quit)
     text("EXIT",FONT,(WIDTH-BUTTON_WIDTH)/2+BUTTON_WIDTH/2, 700+BUTTON_HEIGHT/2, BLACK)
