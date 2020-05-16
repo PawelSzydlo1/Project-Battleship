@@ -236,12 +236,42 @@ def Continue_1():
 
         pygame.display.flip()
 
+#rozgrywka
+
 def Continue_2():
 
     while True:
 
         input(pygame.event.get())
         SCREEN.blit(BACKGROUND,(0,0))
+
+        text("START THE BATTLE!",FONT4, WIDTH/2,HEIGHT*0.5/8,WHITE)
+        text("CAPTAIN 1", FONT1, WIDTH_2_B+5*(BUTTON_WIDTH_1+2),HEIGHT*2.5/10,WHITE)
+        text("CAPTAIN 2", FONT1, WIDTH_3_B+5*(BUTTON_WIDTH_1+2),HEIGHT*2.5/10,WHITE)
+
+        #liczba pozostałych pól ze statkami, liczba strzałów graczy
+        counter1=0
+        counter2=0
+        player1_hits=0
+        player2_hits=0
+
+        for i in range(0, 10):
+            counter1 += Player_1_list[i].count(1)
+            counter2 += Player_2_list[i].count(1)
+            player1_hits += Player_2_list[i].count(-1)
+            player1_hits += Player_2_list[i].count(-2)
+            player2_hits += Player_1_list[i].count(-1)
+            player2_hits += Player_1_list[i].count(-2)
+
+
+        text("FIRST FLEET'S POWER: "+str(counter1), FONT6, WIDTH_2_B + 5 * (BUTTON_WIDTH_1 + 2), HEIGHT * 7 / 10, WHITE)
+        text("SECOND FLEET'S POWER "+str(counter2), FONT6, WIDTH_3_B + 5 * (BUTTON_WIDTH_1 + 2), HEIGHT * 7 / 10, WHITE)
+        text("Click on a square to shoot!", FONT7,WIDTH / 2, HEIGHT * 7.5 / 10, WHITE)
+        text("If you hit enemy's ship, you'll see this picture: ", FONT7, WIDTH / 2, HEIGHT * 8 / 10, WHITE)
+        SCREEN.blit(D_SHIP, (WIDTH * 7 / 8, HEIGHT * 7.8 / 10))
+        text("If your shoot misses the target, you'll see this picture: ", FONT7, WIDTH / 2, HEIGHT * 8.5 / 10, WHITE)
+        SCREEN.blit(ANCHOR, (WIDTH * 7 / 8, HEIGHT * 8.35 / 10))
+        text("Each fleet consists of one four-master, two three-masters, three two-masters and four one-masters",FONT7, WIDTH / 2, HEIGHT * 9 / 10, WHITE)
 
 
         pygame.display.flip()
