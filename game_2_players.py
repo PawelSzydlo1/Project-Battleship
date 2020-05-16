@@ -296,5 +296,19 @@ def Continue_2():
                     SCREEN.blit(ANCHOR, (j, i))
 
 
+        for i in range(HEIGHT_3_B, HEIGHT_3_E, BUTTON_HEIGHT_1+2):
+            for j in range(WIDTH_3_B, WIDTH_3_E, BUTTON_WIDTH_1+2):
+                b=Button_2_player(SCREEN,j,(lambda x: x+BUTTON_WIDTH_1)(j),i,(lambda x:x+BUTTON_HEIGHT_1)(i),YELLOW,RED,hit_by_player,Player_2_list,
+                        ((lambda x:x-HEIGHT_3_B-2)(i))//(BUTTON_WIDTH_1 + 2) + 1,((lambda x:x-WIDTH_3_B-2)(j))//(BUTTON_HEIGHT_1 + 2) + 1,
+                        player1_hits,player2_hits)
+                b.button()
+                if Player_2_list[(lambda x:x-HEIGHT_3_B-2)(i)//(BUTTON_WIDTH_1 + 2) + 1][
+                    (lambda x:x-WIDTH_3_B-2)(j)//(BUTTON_HEIGHT_1 + 2) + 1]==-1:
+                    SCREEN.blit(D_SHIP,(j,i))
+                if Player_2_list[(lambda x: x - HEIGHT_3_B - 2)(i) // (BUTTON_WIDTH_1 + 2) + 1][
+                    (lambda x: x - WIDTH_3_B - 2)(j) // (BUTTON_HEIGHT_1 + 2) + 1] == -2:
+                    SCREEN.blit(ANCHOR, (j, i))
+
+
 
         pygame.display.flip()

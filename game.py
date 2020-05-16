@@ -147,9 +147,9 @@ def Player_1():
 
         for i in range (HEIGHT_1_B, HEIGHT_1_E, BUTTON_HEIGHT_1+2):
             for j in range (WIDTH_1_B,WIDTH_1_E,BUTTON_WIDTH_1+2):
-                button_main(SCREEN,j,j+BUTTON_WIDTH_1,i,i+BUTTON_HEIGHT_1,RED,WHITE,None)
-                if Player_list[(i - HEIGHT_1_B - 2) // (BUTTON_WIDTH_1 + 2) + 1][
-                    (j - WIDTH_1_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1] == 1:
+                button_main(SCREEN,j,(lambda x:x+BUTTON_WIDTH_1)(j),i,(lambda x:x+BUTTON_HEIGHT_1)(i),RED,WHITE,None)
+                if Player_list[((lambda x:x - HEIGHT_1_B - 2)(i)) // (BUTTON_WIDTH_1 + 2) + 1][
+                    ((lambda x:x - WIDTH_1_B - 2)(j)) // (BUTTON_HEIGHT_1 + 2) + 1] == 1:
                     SCREEN.blit(SHIP,(j,i))
 
         # przejście dalej
@@ -216,9 +216,6 @@ def endgame2():
 def Continue():
 
     draw_AI()
-    #losowanie kto zaczyna
-    x=random.randint(0,2)
-    flag=0
 
     while True:
         input(pygame.event.get())
@@ -242,16 +239,6 @@ def Continue():
             player_hits+=AI_list[i].count(-2)
             AI_hits+=Player_list[i].count(-1)
             AI_hits += Player_list[i].count(-2)
-
-        if flag==0:
-            flag+=1
-            if x==0:
-                if level[0] == 1:
-                    hit_by_AI_easy(Player_list)
-                elif level[1] == 1:
-                    hit_by_AI_normal(Player_list)
-                elif level[2] == 1:
-                    hit_by_AI_hard(Player_list)
 
 
         # ruch AI po ruchu gracza
@@ -284,27 +271,27 @@ def Continue():
 
         for i in range(HEIGHT_2_B,HEIGHT_2_E,BUTTON_HEIGHT_1+2):
             for j in range(WIDTH_2_B,WIDTH_2_E,BUTTON_WIDTH_1+2):
-                b=Button(SCREEN,j,j+BUTTON_WIDTH_1,i,i+BUTTON_HEIGHT_1,RED,WHITE,None,Player_list,(i-HEIGHT_2_B-2)//(BUTTON_WIDTH_1+2)+1,(j - WIDTH_2_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1)
+                b=Button(SCREEN,j,(lambda x:x+BUTTON_WIDTH_1)(j),i,(lambda x:x+BUTTON_HEIGHT_1)(i),RED,WHITE,None,Player_list,((lambda x:x-HEIGHT_2_B-2)(i))//(BUTTON_WIDTH_1+2)+1,((lambda x:x - WIDTH_2_B - 2)(j)) // (BUTTON_HEIGHT_1 + 2) + 1)
                 b.button()
-                if Player_list[(i - HEIGHT_2_B - 2) // (BUTTON_WIDTH_1 + 2) + 1][
-                    (j - WIDTH_2_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1] == 1:
+                if Player_list[((lambda x:x - HEIGHT_2_B - 2)(i)) // (BUTTON_WIDTH_1 + 2) + 1][
+                    ((lambda x:x- WIDTH_2_B - 2)(j)) // (BUTTON_HEIGHT_1 + 2) + 1] == 1:
                     SCREEN.blit(SHIP,(j,i)) # pokaż statek
-                if Player_list[(i - HEIGHT_2_B - 2) // (BUTTON_WIDTH_1 + 2) + 1][
-                    (j - WIDTH_2_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1] == -1:
+                if Player_list[((lambda x:x - HEIGHT_2_B - 2)(i)) // (BUTTON_WIDTH_1 + 2) + 1][
+                    ((lambda x:x- WIDTH_2_B - 2)(j)) // (BUTTON_HEIGHT_1 + 2) + 1] == -1:
                     SCREEN.blit(D_SHIP, (j, i))  # pokaż zniszczony statek
-                if Player_list[(i - HEIGHT_2_B - 2) // (BUTTON_WIDTH_1 + 2) + 1][
-                    (j - WIDTH_2_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1] == -2:
+                if Player_list[((lambda x:x - HEIGHT_2_B - 2)(i)) // (BUTTON_WIDTH_1 + 2) + 1][
+                    ((lambda x:x- WIDTH_2_B - 2)(j)) // (BUTTON_HEIGHT_1 + 2) + 1] == -2:
                     SCREEN.blit(ANCHOR, (j, i))  # pokaż kotwicę
 
         for i in range(HEIGHT_3_B,HEIGHT_3_E,BUTTON_HEIGHT_1+2):
             for j in range(WIDTH_3_B,WIDTH_3_E,BUTTON_WIDTH_1+2):
-                b1=Button(SCREEN,j,j+BUTTON_WIDTH_1,i,i+BUTTON_HEIGHT_1,RED,WHITE,hit_by_player,AI_list,(i-HEIGHT_3_B-2)//(BUTTON_WIDTH_1+2)+1,(j - WIDTH_3_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1)
+                b1=Button(SCREEN,j,(lambda x:x+BUTTON_WIDTH_1)(j),i,(lambda x:x+BUTTON_HEIGHT_1)(i),RED,WHITE,hit_by_player,AI_list,((lambda x:x-HEIGHT_3_B-2)(i))//(BUTTON_WIDTH_1+2)+1,((lambda x:x - WIDTH_3_B - 2)(j)) // (BUTTON_HEIGHT_1 + 2) + 1)
                 b1.button()
-                if AI_list[(i - HEIGHT_3_B - 2) // (BUTTON_WIDTH_1 + 2) + 1][
-                    (j - WIDTH_3_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1] == -1:
+                if AI_list[((lambda x:x - HEIGHT_3_B - 2)(i)) // (BUTTON_WIDTH_1 + 2) + 1][
+                    ((lambda x:x - WIDTH_3_B - 2)(j)) // (BUTTON_HEIGHT_1 + 2) + 1] == -1:
                     SCREEN.blit(D_SHIP, (j, i))  # pokaż zniszczony statek
-                if AI_list[(i - HEIGHT_3_B - 2) // (BUTTON_WIDTH_1 + 2) + 1][
-                    (j - WIDTH_3_B - 2) // (BUTTON_HEIGHT_1 + 2) + 1] == -2:
+                if AI_list[((lambda x:x - HEIGHT_3_B - 2)(i)) // (BUTTON_WIDTH_1 + 2) + 1][
+                    ((lambda x:x - WIDTH_3_B - 2)(j)) // (BUTTON_HEIGHT_1 + 2) + 1] == -2:
                     SCREEN.blit(ANCHOR, (j, i))  # pokaż kotwicę
 
         pygame.display.flip()

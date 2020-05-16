@@ -456,6 +456,64 @@ class Button_1_player():
             pygame.draw.rect(self.__surface,self.__colour,(self.__width_b,self.__height_b, self.__width_e-self.__width_b,self.__height_e-self.__height_b))
 
 
+#dziedziczenie po Button_1_player nie działa tak sao bo Button
+#zamyka się okno z rozgrywką
+
+class Button_2_player():
+
+    __a=None
+    __b=None
+    __surface=None
+    __width_b=0
+    __width_e=0
+    __height_b=0
+    __height_e=0
+    __colour=None
+    __m_colour=None
+    __action=None
+    __array=[]
+    __index1=0
+    __index2=0
+
+    def __init__(self, surface, width_b, width_e, height_b, height_e,
+                 colour, m_colour, action, array, index1, index2,
+                 a, b):
+        #super().__init__(self, surface, width_b, width_e, height_b, height_e,
+          #               colour, m_colour, action, array, index1, index2,a, b)
+
+
+        self.__a=a
+        self.__b=b
+        self.__surface=surface
+        self.__width_b=width_b
+        self.__width_e=width_e
+        self.__height_b=height_b
+        self.__height_e=height_e
+        self.__colour=colour
+        self.__m_colour=m_colour
+        self.__action=action
+        self.__array=array
+        self.__index1=index1
+        self.__index2=index2
+
+
+    def button(self):
+
+        mouse = pygame.mouse.get_pos()
+        click = pygame.mouse.get_pressed()
+
+        if self.__width_b < mouse[0] < self.__width_e and self.__height_b < mouse[1] < self.__height_e:
+            pygame.draw.rect(self.__surface, self.__m_colour, (
+            self.__width_b, self.__height_b, self.__width_e - self.__width_b, self.__height_e - self.__height_b))
+            if click[0] == 1 and self.__action == hit_by_player and self.__a == self.__b:
+                sleep(0.2)
+                hit_by_player(self.__array, self.__index1, self.__index2)
+            elif click[0] == 1 and self.__action != None and self.__action != hit_by_player:
+                self.__action()
+        else:
+            pygame.draw.rect(self.__surface, self.__colour, (
+            self.__width_b, self.__height_b, self.__width_e - self.__width_b, self.__height_e - self.__height_b))
+
 
 
 
