@@ -190,7 +190,7 @@ def Player_2():
 
         for i in range (HEIGHT_1_B, HEIGHT_1_E, BUTTON_HEIGHT_1+2):
             for j in range (WIDTH_1_B,WIDTH_1_E,BUTTON_WIDTH_1+2):
-                button_main(SCREEN,j,(lambda x:x+BUTTON_WIDTH_1)(j),i,(lambda x:x++BUTTON_HEIGHT_1)(i),RED,WHITE,None)
+                button_main(SCREEN,j,(lambda x:x+BUTTON_WIDTH_1)(j),i,(lambda x:x++BUTTON_HEIGHT_1)(i),YELLOW,RED,None)
                 if Player_1_list[(lambda x:x - HEIGHT_1_B - 2)(i) // (BUTTON_WIDTH_1 + 2) + 1][
                     (lambda x:x - WIDTH_1_B - 2)(j) // (BUTTON_HEIGHT_1 + 2) + 1] == 1:
                     SCREEN.blit(SHIP,(j,i))
@@ -221,7 +221,7 @@ def Continue_1():
 
         for i in range (HEIGHT_1_B, HEIGHT_1_E, BUTTON_HEIGHT_1+2):
             for j in range (WIDTH_1_B,WIDTH_1_E,BUTTON_WIDTH_1+2):
-                button_main(SCREEN,j,(lambda x:x+BUTTON_WIDTH_1)(j),i,(lambda x:x++BUTTON_HEIGHT_1)(i),RED,WHITE,None)
+                button_main(SCREEN,j,(lambda x:x+BUTTON_WIDTH_1)(j),i,(lambda x:x++BUTTON_HEIGHT_1)(i),YELLOW,RED,None)
                 if Player_2_list[(lambda x:x - HEIGHT_1_B - 2)(i) // (BUTTON_WIDTH_1 + 2) + 1][
                     (lambda x:x - WIDTH_1_B - 2)(j) // (BUTTON_HEIGHT_1 + 2) + 1] == 1:
                     SCREEN.blit(SHIP,(j,i))
@@ -272,6 +272,29 @@ def Continue_2():
         text("If your shoot misses the target, you'll see this picture: ", FONT7, WIDTH / 2, HEIGHT * 8.5 / 10, WHITE)
         SCREEN.blit(ANCHOR, (WIDTH * 7 / 8, HEIGHT * 8.35 / 10))
         text("Each fleet consists of one four-master, two three-masters, three two-masters and four one-masters",FONT7, WIDTH / 2, HEIGHT * 9 / 10, WHITE)
+
+        if counter1 == 0:
+            sleep(0.2)
+            endgame2()
+
+        if counter2 == 0:
+            sleep(0.2)
+            endgame1()
+
+
+        for i in range(HEIGHT_2_B, HEIGHT_2_E, BUTTON_HEIGHT_1+2):
+            for j in range(WIDTH_2_B, WIDTH_2_E, BUTTON_WIDTH_1+2):
+                b=Button_1_player(SCREEN,j,(lambda x: x+BUTTON_WIDTH_1)(j),i,(lambda x:x+BUTTON_HEIGHT_1)(i),YELLOW,RED,hit_by_player,Player_1_list,
+                        ((lambda x:x-HEIGHT_2_B-2)(i))//(BUTTON_WIDTH_1 + 2) + 1,((lambda x:x-WIDTH_2_B-2)(j))//(BUTTON_HEIGHT_1 + 2) + 1,
+                        player1_hits,player2_hits)
+                b.button()
+                if Player_1_list[(lambda x:x-HEIGHT_2_B-2)(i)//(BUTTON_WIDTH_1 + 2) + 1][
+                    (lambda x:x-WIDTH_2_B-2)(j)//(BUTTON_HEIGHT_1 + 2) + 1]==-1:
+                    SCREEN.blit(D_SHIP,(j,i))
+                if Player_1_list[(lambda x: x - HEIGHT_2_B - 2)(i) // (BUTTON_WIDTH_1 + 2) + 1][
+                    (lambda x: x - WIDTH_2_B - 2)(j) // (BUTTON_HEIGHT_1 + 2) + 1] == -2:
+                    SCREEN.blit(ANCHOR, (j, i))
+
 
 
         pygame.display.flip()
