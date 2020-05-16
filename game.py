@@ -193,6 +193,8 @@ def endgame1():
 
         pygame.display.flip()
 
+#wygrana gracza
+
 def endgame2():
 
     pygame.mixer.music.stop

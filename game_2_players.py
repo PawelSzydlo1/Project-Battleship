@@ -80,9 +80,6 @@ def draw_player_1():
             counter+=1
             put_2(Player_1_list)
 
-    for i in range(0,10,1):
-        print(Player_1_list[i])
-
 
 def draw_player_2():
     counter = 0  # liczy, ile jest ustawionych statków
@@ -135,11 +132,46 @@ def draw_player_2():
             counter += 1
             put_2(Player_2_list)
 
-    for i in range(0, 10, 1):
-        print(Player_2_list[i])
 
 
-draw_player_1()
-print("\n\n")
-draw_player_2()
+
+def endgame1():
+
+    pygame.mixer.music.stop
+    pygame.mixer.music.load('Fanfare.mp3')
+    pygame.mixer.music.play(-1)
+
+    while True:
+        input(pygame.event.get())
+        SCREEN.blit(VICTORY1, (0,0))
+
+        button_main(SCREEN, WIDTH / 8, WIDTH * 3 / 8, HEIGHT * 6.5 / 8, HEIGHT * 7.5 / 8, WHITE, WHITE, None)
+        text("REPLAY", FONT2, WIDTH / 4, HEIGHT * 7 / 8, BLACK)
+        button_main(SCREEN, WIDTH * 5 / 8, WIDTH * 7 / 8, HEIGHT * 6.5 / 8, HEIGHT * 7.5 / 8, WHITE, WHITE, quit)
+        text("QUIT", FONT2, WIDTH * 3 / 4, HEIGHT * 7 / 8, BLACK)
+
+        pygame.display.flip()
+
+
+
+def endgame2():
+
+    pygame.mixer.music.stop
+    pygame.mixer.music.load('Fanfare.mp3')
+    pygame.mixer.music.play(-1)
+
+    while True:
+
+        input(pygame.event.get())
+        SCREEN.blit(VICTORY2, (0,0))
+
+        button_main(SCREEN, WIDTH / 8, WIDTH * 3 / 8, HEIGHT * 6.5 / 8, HEIGHT * 7.5 / 8, WHITE, WHITE, None)
+        text("REPLAY", FONT2, WIDTH / 4, HEIGHT * 7 / 8, BLACK)
+        button_main(SCREEN, WIDTH * 5 / 8, WIDTH * 7 / 8, HEIGHT * 6.5 / 8, HEIGHT * 7.5 / 8, WHITE, WHITE, quit)
+        text("QUIT", FONT2, WIDTH * 3 / 4, HEIGHT * 7 / 8, BLACK)
+
+        pygame.display.flip()
+
+
+
 
