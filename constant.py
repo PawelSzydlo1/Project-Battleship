@@ -49,5 +49,7 @@ D_SHIP = pygame.image.load('ship_d.png')
 D_SHIP = pygame.transform.scale(D_SHIP, (BUTTON_WIDTH_1, BUTTON_HEIGHT_1))
 ANCHOR = pygame.image.load('anchor.png')
 ANCHOR = pygame.transform.scale(ANCHOR, (BUTTON_WIDTH_1, BUTTON_HEIGHT_1))
+VICTORY1 = pygame.image.load('victory1.jpg')
+VICTORY2 = pygame.image.load('victory2.jpg')
 
 SCREEN = pygame.display.get_surface()
