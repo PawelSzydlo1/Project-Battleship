@@ -5,7 +5,7 @@ from logic import *
 pygame.init()
 random.seed()
 
-FONT1=pygame.font.SysFont("Times New Roman", 80)
+FONT1=pygame.font.SysFont("Times New Roman", 70)
 FONT2=pygame.font.SysFont("Times New Roman", 50)
 FONT3=pygame.font.SysFont("Times New Roman", 60)
 FONT4=pygame.font.SysFont("Times New Roman", 100)
@@ -185,6 +185,15 @@ def Player_2():
         input(pygame.event.get())
         SCREEN.blit(BACKGROUND, (0,0))
 
+        text("Captain One, choose your positions!", FONT1, WIDTH / 2, HEIGHT * 0.75 / 8, WHITE)
+        text("To reset ships' positions, click \"RESET\" button", FONT2, WIDTH / 2, HEIGHT * 1.5 / 8, WHITE)
+
+        for i in range (HEIGHT_1_B, HEIGHT_1_E, BUTTON_HEIGHT_1+2):
+            for j in range (WIDTH_1_B,WIDTH_1_E,BUTTON_WIDTH_1+2):
+                button_main(SCREEN,j,(lambda x:x+BUTTON_WIDTH_1)(j),i,(lambda x:x++BUTTON_HEIGHT_1)(i),RED,WHITE,None)
+                if Player_1_list[(lambda x:x - HEIGHT_1_B - 2)(i) // (BUTTON_WIDTH_1 + 2) + 1][
+                    (lambda x:x - WIDTH_1_B - 2)(j) // (BUTTON_HEIGHT_1 + 2) + 1] == 1:
+                    SCREEN.blit(SHIP,(j,i))
 
         pygame.display.flip()
 
