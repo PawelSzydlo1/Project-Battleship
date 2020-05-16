@@ -195,6 +195,16 @@ def Player_2():
                     (lambda x:x - WIDTH_1_B - 2)(j) // (BUTTON_HEIGHT_1 + 2) + 1] == 1:
                     SCREEN.blit(SHIP,(j,i))
 
+        # przejście dalej
+        button_main(SCREEN, WIDTH / 8, WIDTH * 3 / 8, HEIGHT * 5.25 / 8, HEIGHT * 6.25 / 8, BLUE,GREEN,None)
+        text("CONTINUE", FONT2, WIDTH / 4, HEIGHT * 5.75 / 8, BLACK)
+        # losowanie planszy raz jeszcze
+        button_main(SCREEN, WIDTH * 5 / 8, WIDTH * 7 / 8, HEIGHT * 5.25 / 8, HEIGHT * 6.25 / 8, BLUE, GREEN,draw_player_1)
+        text("RESET", FONT3, WIDTH * 3 / 4, HEIGHT * 5.75 / 8, BLACK)
+        text("Don't let Captain Two look at screen!", FONT2, WIDTH / 2, HEIGHT * 7 / 8, WHITE)
+
+
+
         pygame.display.flip()
 
 
