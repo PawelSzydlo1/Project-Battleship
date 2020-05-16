@@ -196,17 +196,52 @@ def Player_2():
                     SCREEN.blit(SHIP,(j,i))
 
         # przejście dalej
-        button_main(SCREEN, WIDTH / 8, WIDTH * 3 / 8, HEIGHT * 5.25 / 8, HEIGHT * 6.25 / 8, BLUE,GREEN,None)
+        button_main(SCREEN, WIDTH / 8, WIDTH * 3 / 8, HEIGHT * 5.25 / 8, HEIGHT * 6.25 / 8, BLUE,GREEN,Continue_1)
         text("CONTINUE", FONT2, WIDTH / 4, HEIGHT * 5.75 / 8, BLACK)
         # losowanie planszy raz jeszcze
         button_main(SCREEN, WIDTH * 5 / 8, WIDTH * 7 / 8, HEIGHT * 5.25 / 8, HEIGHT * 6.25 / 8, BLUE, GREEN,draw_player_1)
         text("RESET", FONT3, WIDTH * 3 / 4, HEIGHT * 5.75 / 8, BLACK)
         text("Don't let Captain Two look at screen!", FONT2, WIDTH / 2, HEIGHT * 7 / 8, WHITE)
 
-
-
         pygame.display.flip()
 
 
+def Continue_1():
+
+    draw_player_2()
+    sleep(0.5)
+
+    while True:
+
+        input(pygame.event.get())
+        SCREEN.blit(BACKGROUND,(0,0))
+
+        text("Captain Two, choose your positions!", FONT1, WIDTH / 2, HEIGHT * 0.75 / 8, WHITE)
+        text("To reset ships' positions, click \"RESET\" button", FONT2, WIDTH / 2, HEIGHT * 1.5 / 8, WHITE)
+
+        for i in range (HEIGHT_1_B, HEIGHT_1_E, BUTTON_HEIGHT_1+2):
+            for j in range (WIDTH_1_B,WIDTH_1_E,BUTTON_WIDTH_1+2):
+                button_main(SCREEN,j,(lambda x:x+BUTTON_WIDTH_1)(j),i,(lambda x:x++BUTTON_HEIGHT_1)(i),RED,WHITE,None)
+                if Player_2_list[(lambda x:x - HEIGHT_1_B - 2)(i) // (BUTTON_WIDTH_1 + 2) + 1][
+                    (lambda x:x - WIDTH_1_B - 2)(j) // (BUTTON_HEIGHT_1 + 2) + 1] == 1:
+                    SCREEN.blit(SHIP,(j,i))
+
+        # przejście dalej
+        button_main(SCREEN, WIDTH / 8, WIDTH * 3 / 8, HEIGHT * 5.25 / 8, HEIGHT * 6.25 / 8, BLUE,GREEN,Continue_2)
+        text("CONTINUE", FONT2, WIDTH / 4, HEIGHT * 5.75 / 8, BLACK)
+        # losowanie planszy raz jeszcze
+        button_main(SCREEN, WIDTH * 5 / 8, WIDTH * 7 / 8, HEIGHT * 5.25 / 8, HEIGHT * 6.25 / 8, BLUE, GREEN,draw_player_2)
+        text("RESET", FONT3, WIDTH * 3 / 4, HEIGHT * 5.75 / 8, BLACK)
+        text("Don't let Captain One look at screen!", FONT2, WIDTH / 2, HEIGHT * 7 / 8, WHITE)
+
+        pygame.display.flip()
+
+def Continue_2():
+
+    while True:
+
+        input(pygame.event.get())
+        SCREEN.blit(BACKGROUND,(0,0))
 
 
+        pygame.display.flip()
